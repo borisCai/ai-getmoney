@@ -9,6 +9,123 @@
             padding: 20px; 
             background-color: #f8f9fa;
         }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+        .lang-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .lang-btn:hover {
+            background: #2980b9;
+        }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid #3498db; 
+            padding-bottom: 10px; 
+            margin-top: 0;
+        }
+        p { 
+            color: #34495e; 
+            line-height: 1.6; 
+        }
+        .ad-container {
+            width: 100%;
+            height: 100px;
+            background-color: #f0f7ff;
+            border: 1px dashed #3498db;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .ad-content {
+            color: #3498db;
+            text-align: center;
+            padding: 0 20px;
+        }
+        iframe { 
+            width: 100%; 
+            height: 600px; 
+            border: 2px solid #ecf0f1; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="lang-switch">
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+    </div>
+
+    <h1 class="lang-text" data-zh="欢迎来到游戏乐园" data-en="Welcome to Game Paradise" data-ja="ゲームパラダイスへようこそ">欢迎来到游戏乐园</h1>
+    
+    <p class="lang-text" data-zh="这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。" 
+       data-en="Here you'll find a variety of fun online games. Click the game window below to start playing." 
+       data-ja="ここにはさまざまな楽しいオンラインゲームが集まっています。下のゲームウィンドウをクリックしてプレイを開始してください。">
+       这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。
+    </p>
+    
+    <!-- 广告位区域 -->
+    <div class="ad-container">
+        <div class="ad-content lang-text" data-zh="【广告位】这里可以放置你的广告内容" 
+             data-en="【Ad Space】You can place your ad content here" 
+             data-ja="【広告スペース】ここに広告コンテンツを配置できます">
+            【广告位】这里可以放置你的广告内容
+        </div>
+    </div>
+    
+    <iframe src="https://crazygames-poki.com/embed/2048-puzzle" 
+            width="100%" 
+            height="600" 
+            scrolling="no" 
+            frameborder="0">
+    </iframe>
+
+    <script>
+        // 语言切换功能
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                // 更新所有需要翻译的文本
+                document.querySelectorAll('.lang-text').forEach(element => {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                });
+                // 更新页面标题
+                const titles = {
+                    'zh': '游戏乐园 - 单页游戏集合',
+                    'en': 'Game Paradise - Single Page Game Collection',
+                    'ja': 'ゲームパラダイス - シングルページゲームコレクション'
+                };
+                document.title = titles[lang];
+            });
+        });
+    </script>
+</body>
+</html><html>
+<head>
+    <title>游戏乐园 - 单页游戏集合</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f8f9fa;
+        }
         h1 { 
             color: #2c3e50; 
             border-bottom: 2px solid #3498db; 
