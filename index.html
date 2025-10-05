@@ -1,6 +1,9 @@
 <html>
 <head>
     <title>游戏乐园 - 单页游戏集合</title>
+    <!-- 整合AdSense代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1896181132555716"
+     crossorigin="anonymous"></script>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -68,23 +71,30 @@
     <div class="lang-switch">
         <button class="lang-btn" data-lang="zh">中文</button>
         <button class="lang-btn" data-lang="en">English</button>
-        <button class="lang-btn" data-lang="ja">日本語</button>
+        <button class="lang-btn" data-lang="de">Deutsch</button>
     </div>
 
-    <h1 class="lang-text" data-zh="欢迎来到游戏乐园" data-en="Welcome to Game Paradise" data-ja="ゲームパラダイスへようこそ">欢迎来到游戏乐园</h1>
+    <h1 class="lang-text" 
+        data-zh="欢迎来到游戏乐园" 
+        data-en="Welcome to Game Paradise" 
+        data-de="Willkommen im Spielparadies">
+        欢迎来到游戏乐园
+    </h1>
     
-    <p class="lang-text" data-zh="这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。" 
-       data-en="Here you'll find a variety of fun online games. Click the game window below to start playing." 
-       data-ja="ここにはさまざまな楽しいオンラインゲームが集まっています。下のゲームウィンドウをクリックしてプレイを開始してください。">
-       这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。
+    <p class="lang-text" 
+        data-zh="这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。" 
+        data-en="Here you'll find a variety of fun online games. Click the game window below to start playing." 
+        data-de="Hier finden Sie eine Vielzahl von lustigen Online-Spielen. Klicken Sie auf das Spielfenster unten, um zu beginnen.">
+        这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。
     </p>
     
-    <!-- 广告位区域 -->
+    <!-- 广告位区域 (AdSense会自动在此类区域优化展示广告) -->
     <div class="ad-container">
-        <div class="ad-content lang-text" data-zh="【广告位】这里可以放置你的广告内容" 
-             data-en="【Ad Space】You can place your ad content here" 
-             data-ja="【広告スペース】ここに広告コンテンツを配置できます">
-            【广告位】这里可以放置你的广告内容
+        <div class="ad-content lang-text" 
+             data-zh="【广告位】" 
+             data-en="【Ad Space】" 
+             data-de="【Werbeplatz】">
+            【广告位】
         </div>
     </div>
     
@@ -108,77 +118,11 @@
                 const titles = {
                     'zh': '游戏乐园 - 单页游戏集合',
                     'en': 'Game Paradise - Single Page Game Collection',
-                    'ja': 'ゲームパラダイス - シングルページゲームコレクション'
+                    'de': 'Spielparadies - Einzelseiten-Spielesammlung'
                 };
                 document.title = titles[lang];
             });
         });
     </script>
-</body>
-</html><html>
-<head>
-    <title>游戏乐园 - 单页游戏集合</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            background-color: #f8f9fa;
-        }
-        h1 { 
-            color: #2c3e50; 
-            border-bottom: 2px solid #3498db; 
-            padding-bottom: 10px; 
-            margin-top: 0;
-        }
-        p { 
-            color: #34495e; 
-            line-height: 1.6; 
-        }
-        .ad-container {
-            width: 100%;
-            height: 100px;
-            background-color: #f0f7ff;
-            border: 1px dashed #3498db;
-            border-radius: 5px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .ad-content {
-            color: #3498db;
-            text-align: center;
-            padding: 0 20px;
-        }
-        iframe { 
-            width: 100%; 
-            height: 600px; 
-            border: 2px solid #ecf0f1; 
-            border-radius: 5px; 
-            margin-top: 10px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-<body>
-    <h1>欢迎来到游戏乐园</h1>
-    <p>这里集合了各种有趣的在线小游戏，点击下方游戏窗口即可开始游玩。使用上方导航可以切换不同类型的游戏。</p>
-    
-    <!-- 广告位区域 -->
-    <div class="ad-container">
-        <div class="ad-content">
-            <p>【广告位】这里可以放置你的广告内容或广告代码</p>
-        </div>
-    </div>
-    
-    <iframe src="https://crazygames-poki.com/embed/2048-puzzle" 
-            width="100%" 
-            height="600" 
-            scrolling="no" 
-            frameborder="0">
-    </iframe>
 </body>
 </html>
