@@ -136,17 +136,21 @@
         }
 
         .rules-box {
-            background: #f8f9fa;
-            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
             border-radius: 15px;
             border-left: 5px solid #667eea;
             line-height: 1.8;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .rules-box h3 {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
         }
 
         .rules-box ul {
@@ -155,17 +159,43 @@
         }
 
         .rules-box li {
-            padding: 8px 0;
-            padding-left: 25px;
+            padding: 15px;
+            padding-left: 50px;
+            margin-bottom: 12px;
             position: relative;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .rules-box li:hover {
+            border-left-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
         }
 
         .rules-box li:before {
             content: "✓";
             position: absolute;
-            left: 0;
-            color: #667eea;
+            left: 15px;
+            top: 15px;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .rules-box li strong {
+            color: #667eea;
+            font-size: 1.05em;
         }
 
         /* 响应式设计 */
@@ -360,6 +390,172 @@
 
         .btn-back:hover {
             background: #5a6268;
+        }
+
+        /* 成绩记录样式 */
+        .result-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .result-date {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-value.correct {
+            color: #28a745;
+        }
+
+        .stat-value.accuracy {
+            color: #ffc107;
+        }
+
+        .result-details-btn {
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .result-details-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .question-details {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .question-details.active {
+            display: block;
+        }
+
+        .question-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+            background: #f8f9fa;
+        }
+
+        .question-item.correct {
+            border-left-color: #28a745;
+            background: #f0f9f4;
+        }
+
+        .question-item.incorrect {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .question-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .question-text-detail {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .question-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .question-status.correct {
+            background: #28a745;
+            color: white;
+        }
+
+        .question-status.incorrect {
+            background: #dc3545;
+            color: white;
+        }
+
+        .question-answer-info {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .question-explanation {
+            margin-top: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #555;
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -685,9 +881,13 @@
                 gameState.timeLeft = 180; // 3分钟 = 180秒
                 // 生成足够多的题目（假设最多能做很多题）
                 gameState.questions = generateQuestions(100);
+            } else if (mode === 'normal') {
+                // 常规模式：5分钟，最多70道题
+                gameState.mode = 'normal';
+                gameState.timeLeft = 300; // 5分钟 = 300秒
+                // 生成70道题
+                gameState.questions = generateQuestions(70);
             } else {
-                // 常规模式待实现
-                alert('常规比赛模式将在下一步实现');
                 return;
             }
 
@@ -723,6 +923,12 @@
 
         // 显示当前题目
         function showCurrentQuestion() {
+            // 常规模式下，如果所有题目都答完了，提前结束
+            if (gameState.mode === 'normal' && gameState.currentIndex >= gameState.questions.length) {
+                endGame();
+                return;
+            }
+
             const question = gameState.questions[gameState.currentIndex];
             if (!question) {
                 endGame();
@@ -772,12 +978,20 @@
             const minutes = Math.floor(gameState.timeLeft / 60);
             const seconds = gameState.timeLeft % 60;
             const timeStr = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            document.getElementById('timer-display').textContent = timeStr;
+            const timerDisplay = document.getElementById('timer-display');
+            timerDisplay.textContent = timeStr;
 
-            // 最后30秒显示红色警告
-            if (gameState.timeLeft <= 30) {
-                document.getElementById('timer-display').style.color = '#e74c3c';
-                document.getElementById('timer-display').style.animation = gameState.timeLeft <= 10 ? 'pulse 0.5s infinite' : 'none';
+            // 根据模式设置警告时间
+            const warningTime = gameState.mode === 'normal' ? 60 : 30; // 常规模式60秒警告，倒计时模式30秒警告
+            
+            // 最后警告时间显示红色警告
+            if (gameState.timeLeft <= warningTime) {
+                timerDisplay.style.color = '#e74c3c';
+                timerDisplay.style.animation = gameState.timeLeft <= 10 ? 'pulse 0.5s infinite' : 'none';
+            } else {
+                // 恢复默认颜色
+                timerDisplay.style.color = '#e74c3c'; // 默认就是红色，保持不变
+                timerDisplay.style.animation = 'none';
             }
         }
 
@@ -819,8 +1033,51 @@
             // 0.8秒后自动进入下一题
             setTimeout(() => {
                 gameState.currentIndex++;
-                showCurrentQuestion();
+                
+                // 常规模式下，如果所有题目都答完了，提前结束
+                if (gameState.mode === 'normal' && gameState.currentIndex >= gameState.questions.length) {
+                    endGame();
+                } else {
+                    showCurrentQuestion();
+                }
             }, 800);
+        }
+
+        // 保存成绩到本地存储
+        function saveResult() {
+            const elapsedTime = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const accuracy = gameState.answeredCount > 0 
+                ? parseFloat(((gameState.correctCount / gameState.answeredCount) * 100).toFixed(1))
+                : 0;
+
+            const result = {
+                id: Date.now(),
+                mode: gameState.mode === 'countdown' ? '倒计时比赛' : '常规比赛',
+                date: new Date().toLocaleString('zh-CN'),
+                elapsedTime: elapsedTime,
+                timeStr: `${Math.floor(elapsedTime / 60)}分${elapsedTime % 60}秒`,
+                totalQuestions: gameState.questions.length,
+                answeredCount: gameState.answeredCount,
+                correctCount: gameState.correctCount,
+                accuracy: accuracy,
+                questions: gameState.questions.filter(q => q.answered) // 只保存已答的题目
+            };
+
+            // 从localStorage读取现有成绩
+            let results = JSON.parse(localStorage.getItem('mathGameResults') || '[]');
+            
+            // 添加到开头（最新的在前面）
+            results.unshift(result);
+            
+            // 最多保存50条记录
+            if (results.length > 50) {
+                results = results.slice(0, 50);
+            }
+            
+            // 保存回localStorage
+            localStorage.setItem('mathGameResults', JSON.stringify(results));
+            
+            return result;
         }
 
         // 结束游戏
@@ -839,11 +1096,17 @@
                 ? ((gameState.correctCount / gameState.answeredCount) * 100).toFixed(1) 
                 : 0;
 
-            // 显示结果（暂时用alert，后续会实现结果页面）
-            alert(`比赛结束！\n\n完成时间：${timeStr}\n完成题数：${gameState.answeredCount}题\n正确题数：${gameState.correctCount}题\n正确率：${accuracy}%`);
+            // 保存成绩
+            const result = saveResult();
 
-            // 返回首页（成绩保存功能待实现）
+            // 显示结果
+            alert(`比赛结束！\n\n完成时间：${timeStr}\n完成题数：${gameState.answeredCount}题\n正确题数：${gameState.correctCount}题\n正确率：${accuracy}%\n\n成绩已保存，可在"我的成绩"中查看详细记录。`);
+
+            // 返回首页
             exitGame();
+            
+            // 刷新成绩列表
+            loadResults();
         }
 
         // 退出游戏
@@ -861,6 +1124,102 @@
             document.querySelector('[data-tab="home"]').classList.add('active');
         }
 
+        // 加载并显示成绩列表
+        function loadResults() {
+            const results = JSON.parse(localStorage.getItem('mathGameResults') || '[]');
+            const resultsList = document.getElementById('results-list');
+            
+            if (results.length === 0) {
+                resultsList.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">暂无成绩记录，快去参加比赛吧！</p>';
+                return;
+            }
+
+            let html = '';
+            results.forEach((result, index) => {
+                html += `
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div>
+                                <div class="result-title">${result.mode}</div>
+                                <div class="result-date">${result.date}</div>
+                            </div>
+                        </div>
+                        <div class="result-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">完成时间</div>
+                                <div class="stat-value">${result.timeStr}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">完成题数</div>
+                                <div class="stat-value">${result.answeredCount}/${result.totalQuestions}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">正确题数</div>
+                                <div class="stat-value correct">${result.correctCount}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">正确率</div>
+                                <div class="stat-value accuracy">${result.accuracy}%</div>
+                            </div>
+                        </div>
+                        <button class="result-details-btn" onclick="toggleDetails(${result.id})">
+                            <span id="btn-text-${result.id}">查看详细记录 ▼</span>
+                        </button>
+                        <div class="question-details" id="details-${result.id}">
+                            ${generateQuestionDetails(result.questions)}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsList.innerHTML = html;
+        }
+
+        // 生成题目详细记录HTML
+        function generateQuestionDetails(questions) {
+            if (!questions || questions.length === 0) {
+                return '<p style="text-align: center; color: #999; padding: 10px;">暂无答题记录</p>';
+            }
+
+            let html = '';
+            questions.forEach((q, index) => {
+                const statusClass = q.isCorrect ? 'correct' : 'incorrect';
+                const statusText = q.isCorrect ? '✓ 正确' : '✗ 错误';
+                const userAnswerText = q.userAnswer !== null ? q.userAnswer : '未答题';
+                
+                html += `
+                    <div class="question-item ${statusClass}">
+                        <div class="question-item-header">
+                            <div class="question-text-detail">第${index + 1}题：${q.question}</div>
+                            <span class="question-status ${statusClass}">${statusText}</span>
+                        </div>
+                        <div class="question-answer-info">
+                            <strong>你的答案：</strong>${userAnswerText} &nbsp;&nbsp;
+                            <strong>正确答案：</strong>${q.answer} &nbsp;&nbsp;
+                            <strong>题目类型：</strong>${q.type}
+                        </div>
+                        ${q.explanation ? `<div class="question-explanation">💡 解析：${q.explanation}</div>` : ''}
+                    </div>
+                `;
+            });
+            
+            return html;
+        }
+
+        // 切换详细记录显示/隐藏
+        function toggleDetails(resultId) {
+            const details = document.getElementById(`details-${resultId}`);
+            const btnText = document.getElementById(`btn-text-${resultId}`);
+            
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                btnText.textContent = '查看详细记录 ▼';
+            } else {
+                details.classList.add('active');
+                btnText.textContent = '隐藏详细记录 ▲';
+            }
+        }
+
         // 添加回车键提交答案功能
         document.addEventListener('DOMContentLoaded', function() {
             const answerInput = document.getElementById('answer-input');
@@ -872,6 +1231,14 @@
                     }
                 });
             }
+
+            // 初始化时加载成绩列表
+            loadResults();
+
+            // 当切换到成绩标签页时，刷新成绩列表
+            document.querySelector('[data-tab="results"]').addEventListener('click', function() {
+                loadResults();
+            });
         });
     </script>
 </body>
