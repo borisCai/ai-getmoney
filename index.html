@@ -812,6 +812,70 @@
             };
         }
 
+        // 生成混合运算题：a + b × c（先乘后加）
+        function generateNoBracketAddMultiply() {
+            const a = randomInt(1, 20);
+            const b = randomInt(2, 5);
+            const c = randomInt(2, 5);
+            const product = b * c;
+            return {
+                question: `${a} + ${b} × ${c} = ?`,
+                answer: a + product,
+                type: '混合运算-先乘后加',
+                explanation: `先算乘法：${b} × ${c} = ${product}，再算加法：${a} + ${product} = ${a + product}`
+            };
+        }
+
+        // 生成混合运算题：a + b ÷ c（先除后加）
+        function generateNoBracketAddDivide() {
+            const a = randomInt(1, 20);
+            const b = randomInt(2, 8);
+            const c = randomInt(2, 6);
+            // 确保b能被c整除
+            const quotient = Math.floor(b / c) * c;
+            const divided = quotient / c;
+            return {
+                question: `${a} + ${quotient} ÷ ${c} = ?`,
+                answer: a + divided,
+                type: '混合运算-先除后加',
+                explanation: `先算除法：${quotient} ÷ ${c} = ${divided}，再算加法：${a} + ${divided} = ${a + divided}`
+            };
+        }
+
+        // 生成混合运算题：a - b × c（先乘后减）
+        function generateNoBracketSubtractMultiply() {
+            const a = randomInt(10, 30);
+            const b = randomInt(2, 5);
+            const c = randomInt(2, 5);
+            const product = b * c;
+            // 确保a大于product，结果为非负
+            const finalA = Math.max(a, product + 1);
+            return {
+                question: `${finalA} - ${b} × ${c} = ?`,
+                answer: finalA - product,
+                type: '混合运算-先乘后减',
+                explanation: `先算乘法：${b} × ${c} = ${product}，再算减法：${finalA} - ${product} = ${finalA - product}`
+            };
+        }
+
+        // 生成混合运算题：a - b ÷ c（先除后减）
+        function generateNoBracketSubtractDivide() {
+            const a = randomInt(10, 30);
+            const b = randomInt(4, 12);
+            const c = randomInt(2, 6);
+            // 确保b能被c整除
+            const quotient = Math.floor(b / c) * c;
+            const divided = quotient / c;
+            // 确保a大于divided，结果为非负
+            const finalA = Math.max(a, divided + 1);
+            return {
+                question: `${finalA} - ${quotient} ÷ ${c} = ?`,
+                answer: finalA - divided,
+                type: '混合运算-先除后减',
+                explanation: `先算除法：${quotient} ÷ ${c} = ${divided}，再算减法：${finalA} - ${divided} = ${finalA - divided}`
+            };
+        }
+
         // 生成题目列表（包含5道混合运算题）
         function generateQuestions(count) {
             const questions = [];
@@ -831,12 +895,16 @@
                 questions.push(typeFunc());
             }
 
-            // 生成5道混合运算题
+            // 生成5道混合运算题（包含带括号和不带括号两种类型）
             const mixedTypes = [
-                generateAddMultiply,
-                generateAddDivide,
-                generateSubtractMultiply,
-                generateSubtractDivide
+                generateAddMultiply,              // (a + b) × c
+                generateAddDivide,                // (a + b) ÷ c
+                generateSubtractMultiply,         // (a - b) × c
+                generateSubtractDivide,           // (a - b) ÷ c
+                generateNoBracketAddMultiply,      // a + b × c
+                generateNoBracketAddDivide,       // a + b ÷ c
+                generateNoBracketSubtractMultiply, // a - b × c
+                generateNoBracketSubtractDivide   // a - b ÷ c
             ];
             
             for (let i = 0; i < mixedCount; i++) {
